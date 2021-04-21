@@ -14,7 +14,7 @@ docker run -it --rm \
     --env "ACCESS_TOKEN=AAAAAAAAAAAAAAAAAAAAAAA" \
     --env "MAP=de_shortdust" \
     --network=host \
-    csgo-server 
+    uexpl0it/csgo-server 
 ```
 
 ### Instructions
