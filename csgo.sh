@@ -54,6 +54,15 @@ cd "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs" && \
     echo "" >> admins_simple.ini && \
     echo "\"$STEAMID\" \"99:z\"" >> admins_simple.ini
 
+# Downloading server & autoexec cfg files
+cd "$CSGO_INSTALL_LOCATION/csgo/cfg/" && \
+    wget https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/autoexec.cfg -O autoexec.cfg && \
+    wget https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/server.cfg -O server.cfg
+
+# Editing autoexec cfg file to add hostname and rcon passwd
+sed -i -e "s:bruh:$SERVERNAME:g" "$CSGO_INSTALL_LOCATION/csgo/cfg/autoexec.cfg"
+sed -i -e "s:pswd:$RCONPSWD:g" "$CSGO_INSTALL_LOCATION/csgo/cfg/autoexec.cfg"
+
 # PTAH installation is required prior to installation of the weapons plugin
 cd /tmp/ && \
     wget https://ptah.zizt.ru/files/PTaH-V1.1.3-build20-linux.zip --no-clobber && \
@@ -89,10 +98,5 @@ cd /tmp/ && \
     cp scripting/ translations/ plugins/ -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
     rm -rfv /tmp/rank-score.zip /tmp/Kento-Rankme-master/
 
-## End of plugins
-
 # Finally calling the .sh file and running csgo server
-echo
-echo "[#] Run CSGO server by following:"
-echo "cd && bash startcsgo.sh"
-echo
+# bash startcsgo.sh
