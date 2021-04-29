@@ -4,12 +4,12 @@
 set -x
 
 # Setting variables required while running server:
-GSLT='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'            # For setting up community server - 730 -- https://steamcommunity.com/dev/managegameservers
-AUTHKEY='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'            # For downloading filse from workshop   -- https://steamcommunity.com/dev/apikey
-CSGO_INSTALL_LOCATION="/home/$USER/csgo-ds"         # Installation directory
+GSLT=''      # For setting up community server - 730 -- https://steamcommunity.com/dev/managegameservers
+AUTHKEY=''   # For downloading filse from workshop   -- https://steamcommunity.com/dev/apikey
+CSGO_INSTALL_LOCATION="/home/$USER/csgo-ds"  # Installation directory
 
 # Setting variables for CS:GO sourcemod config files
-STEAMID='STEAM_0:1:11111111'                # Your SteamId to add you as a admin on sourcemod installation -- https://steamid.io/lookup
+STEAMID=''               # Your SteamId to add you as a admin on sourcemod installation -- https://steamid.io/lookup
 SERVERNAME='Bruh server'                    # Server name you want to appear in searches // connecting
 RCONPSWD='plsdontguessthispls'              # Rcon password while setting up cs:go
 
