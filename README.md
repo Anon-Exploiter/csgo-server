@@ -4,8 +4,6 @@ Creating CS:GO server with skins, ws, gloves, knifes, !rank, !rs, etc. both with
 ### Manually (recommended way)
 If you manually want to build the server, it is highly recommended to use [csgo.sh](https://github.com/Anon-Exploiter/csgo-server/blob/master/csgo.sh):
 
-https://github.com/Anon-Exploiter/csgo-server/blob/master/csgo.sh
-
 The bash file contains instructions for
 - Setting up CS:GO server
 - Setting up Sourcemod & Metamod
