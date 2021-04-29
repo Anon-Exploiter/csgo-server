@@ -32,20 +32,20 @@ steamcmd +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 
 rm -rfv /home/$USER/startcsgo.sh && \
     touch /home/$USER/startcsgo.sh && \
     echo '#!/bin/sh' >> /home/$USER/startcsgo.sh && \
-    echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \
+    echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \ # Fav map -- do try it :D
     echo "cd $CSGO_INSTALL_LOCATION" >> /home/$USER/startcsgo.sh && \
     echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map $MAP -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY +host_workshop_map 2078097114" >> /home/$USER/startcsgo.sh && \
     chmod +x /home/$USER/startcsgo.sh
 
 # Downloading and setting up sourcemod
 cd /tmp/ && \
-    wget https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6502-linux.tar.gz --no-clobber && \
+    curl https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6502-linux.tar.gz -O && \
     tar -xvf sourcemod-1.10.0-git6502-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/sourcemod-1.10.0-git6502-linux.tar.gz
 
 # Downloading and setting up metamod
 cd /tmp/ && \
-    wget https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1144-linux.tar.gz --no-clobber && \
+    curl https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1144-linux.tar.gz -O && \
     tar -xvf mmsource-1.11.0-git1144-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/mmsource-1.11.0-git1144-linux.tar.gz
 
@@ -56,8 +56,8 @@ cd "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs" && \
 
 # Downloading server & autoexec cfg files
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/" && \
-    wget https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/autoexec.cfg -O autoexec.cfg && \
-    wget https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/server.cfg -O server.cfg
+    curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/autoexec.cfg -O && \
+    curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/server.cfg -O
 
 # Editing autoexec cfg file to add hostname and rcon passwd
 sed -i -e "s:bruh:$SERVERNAME:g" "$CSGO_INSTALL_LOCATION/csgo/cfg/autoexec.cfg"
@@ -65,7 +65,7 @@ sed -i -e "s:pswd:$RCONPSWD:g" "$CSGO_INSTALL_LOCATION/csgo/cfg/autoexec.cfg"
 
 # PTAH installation is required prior to installation of the weapons plugin
 cd /tmp/ && \
-    wget https://ptah.zizt.ru/files/PTaH-V1.1.3-build20-linux.zip --no-clobber && \
+    curl https://ptah.zizt.ru/files/PTaH-V1.1.3-build20-linux.zip -O && \
     unzip PTaH-V1.1.3-build20-linux.zip -d ptah && \
     cd ptah && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
@@ -73,7 +73,7 @@ cd /tmp/ && \
 
 # Downloading and setting up knife, gloves, and guns skins (!ws, !gloves && !knife)
 cd /tmp/ && \
-    wget https://github.com/kgns/weapons/releases/download/v1.7.1/weapons-v1.7.1.zip --no-clobber && \
+    curl https://github.com/kgns/weapons/releases/download/v1.7.1/weapons-v1.7.1.zip -O && \
     unzip weapons-v1.7.1.zip -d wpns && \
     cd wpns && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
@@ -84,15 +84,15 @@ sed -i -e 's:"FollowCSGOServerGuidelines"\t"yes":"FollowCSGOServerGuideLines"\t"
 
 # Setting up reset score plugin (!rs or !resetscore)
 cd /tmp/ && \
-    wget https://github.com/abnerfs/abner_resetscore/archive/refs/heads/master.zip --no-clobber -O reset-score.zip && \
+    curl https://github.com/abnerfs/abner_resetscore/archive/refs/heads/master.zip -o reset-score.zip -O -L && \
     unzip -o reset-score.zip && \
     cd abner_resetscore-master/ && \
     cp scripting/ translations/ -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
     rm -rfv /tmp/reset-score.zip /tmp/abner_resetscore-master/
 
-# Downloading and settuping up rank plugins (!rank !top ..)
+# Downloading and setting up rank plugins (!rank !top ..)
 cd /tmp/ && \
-    wget https://github.com/rogeraabbccdd/Kento-Rankme/archive/refs/heads/master.zip --no-clobber -O rank-score.zip && \
+    curl https://github.com/rogeraabbccdd/Kento-Rankme/archive/refs/heads/master.zip -o rank-score.zip -O -L && \
     unzip -o rank-score.zip && \
     cd Kento-Rankme-master/ && \
     cp scripting/ translations/ plugins/ -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
