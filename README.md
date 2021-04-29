@@ -12,7 +12,7 @@ The bash file contains instructions for
 - Invoking of a single file to run it all! 
 
 ### Docker Image
-Make sure to build the image rather than cloning the built image already since that one will be outdated. I'd recommend using the bash script over this since the docker container won't store any user data! -- Is good for one time use only. 
+I'd recommend using the bash script over this since the docker container won't store any user data! It is good for one time use only. 
 
 The docker image can be built using the following:
 ```bash
