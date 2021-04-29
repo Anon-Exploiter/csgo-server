@@ -126,5 +126,7 @@ cd /tmp/ && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
     rm -rfv /tmp/ServerAdvertisement3
 
+curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/ServerAdvertisements3.cfg -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/ServerAdvertisements3.cfg"
+
 # Finally calling the .sh file and running csgo server
 # bash startcsgo.sh
