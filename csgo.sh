@@ -62,7 +62,8 @@ cd "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs" && \
 # Downloading server & autoexec cfg files
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/" && \
     curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/autoexec.cfg -O && \
-    curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/server.cfg -O
+    curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/server.cfg -O && \
+    curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/custom.cfg -O
 
 # Editing autoexec cfg file to add hostname and rcon passwd
 sed -i -e "s:bruh:$SERVERNAME:g" "$CSGO_INSTALL_LOCATION/csgo/cfg/autoexec.cfg"
