@@ -9,14 +9,8 @@ download() {
 }
 
 # Setting variables required while running server:
-GSLT=''      # For setting up community server - 730 -- https://steamcommunity.com/dev/managegameservers
-AUTHKEY=''   # For downloading filse from workshop   -- https://steamcommunity.com/dev/apikey
-CSGO_INSTALL_LOCATION="/home/$USER/csgo-ds"  # Installation directory
-
-# Setting variables for CS:GO sourcemod config files
-STEAMID=''               # Your SteamId to add you as a admin on sourcemod installation -- https://steamid.io/lookup
-SERVERNAME=""                    # Server name you want to appear in searches // connecting
-RCONPSWD=''              # Rcon password while setting up cs:go
+source vars.sh 
+# source my.sh 
 
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
