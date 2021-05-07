@@ -4,8 +4,8 @@
 set -x
 
 # Setting variables required while running server:
-# source vars.sh
-source my.sh # My own local config with values added -- in .gitignore :P
+source vars.sh
+# source my.sh # My own local config with values added -- in .gitignore :P
 
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
