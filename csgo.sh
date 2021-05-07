@@ -10,11 +10,14 @@ source vars.sh
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
     sudo apt-get -y upgrade && \
-    sudo apt install unzip zip software-properties-common aria2 && \
+    sudo apt-get -y install unzip zip software-properties-common aria2 lib32z1 zlib1g mysql-server && \
     sudo add-apt-repository multiverse && \
     sudo dpkg --add-architecture i386 && \
     sudo apt-get -y update && \
-    sudo apt-get -y upgrade
+    sudo apt-get -y upgrade && \
+    sudo apt-get -y clean && \
+    sudo apt-get -y autoclean && \
+    sudo apt-get -y autoremove
 
 # Installing steamcmd for installation of csgo
 sudo apt-get -y install steamcmd
@@ -142,6 +145,16 @@ cd /tmp/ && \
     cd "Multi-Colors-master" && \
     cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/colors.zip /tmp/Multi-Colors-master
+
+# Setting up mysql-server for the !stickers plugin to work
+sudo mysql -u root < ./cfgs/stickers.sql
+
+# Need to add connection snippet in databases.cfg of sourcemod
+cp ./cfgs/databases.cfg -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/"
+
+# Checking if mysql extension is present and setting execution perms
+ls -la "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" && \
+    chmod u+x "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" -v && \
 
 # Finally! !stickers plugin! -- les go! 
 cd /tmp/ && \
