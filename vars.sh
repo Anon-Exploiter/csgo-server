@@ -6,3 +6,8 @@ CSGO_INSTALL_LOCATION="/home/$USER/csgo-ds"     # Installation directory
 STEAMID=''                                      # Your SteamId to add you as a admin on sourcemod installation -- https://steamid.io/lookup
 SERVERNAME=""                                   # Server name
 RCONPSWD=''                                     # Rcon password while setting up cs:go
+
+# For downloading of files
+download() {
+    aria2c -s 10 -j 10 -x 16 $@ --file-allocation=none -c   
+}

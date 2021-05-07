@@ -3,14 +3,9 @@
 # Print all commands (for better debugging)
 set -x
 
-# Downloading files
-download() {
-    aria2c -s 10 -j 10 -x 16 $@ --file-allocation=none -c   
-}
-
 # Setting variables required while running server:
-source vars.sh 
-# source my.sh 
+# source vars.sh 
+source my.sh 
 
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
@@ -73,11 +68,11 @@ cd /tmp/ && \
 
 # Downloading and setting up knife, and guns skins (!ws, !gloves && !knife)
 cd /tmp/ && \
-    download https://github.com/kgns/weapons/releases/download/v1.7.1/weapons-v1.7.1.zip && \
-    unzip weapons-v1.7.1.zip -d wpns && \
+    download https://github.com/kgns/weapons/releases/download/v1.7.2/weapons-v1.7.2.zip && \
+    unzip weapons-v1.7.2.zip -d wpns && \
     cd wpns && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/weapons-v1.7.1.zip /tmp/wpns
+    rm -rfv /tmp/weapons-v1.7.2.zip /tmp/wpns
 
 # Downloading and setting up gloves
 cd /tmp/ && \
@@ -122,6 +117,39 @@ cd /tmp/ && \
     rm -rfv /tmp/ServerAdvertisement3
 
 curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/ServerAdvertisements3.cfg -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/ServerAdvertisements3.cfg"
+
+# Plugin for !stickers on guns! (first dependencies)
+# Eitems dependency for !stickers
+cd /tmp/ && \
+    download https://github.com/quasemago/eItems/releases/download/0.10_bf/eItems_0.10.Broken.Fang.zip && \
+    unzip eItems_0.10.Broken.Fang.zip && \
+    cd "eItems_0.10 (Broken Fang)" && \
+    cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/eItems_0.10.Broken.Fang.zip "/tmp/eItems_0.10 (Broken Fang)"
+
+# REST in Pawn dependency for !stickers
+cd /tmp && \
+    download https://github.com/ErikMinekus/sm-ripext/releases/download/1.2.1/sm-ripext-1.2.1-linux.tar.gz && \
+    tar -xvf sm-ripext-1.2.1-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/sm-ripext-1.2.1-linux.tar.gz /tmp/addons/
+
+# PTaH has already been setup above^ for !ws 
+
+# MultiColors dependency for !stickers
+cd /tmp/ && \
+    download https://github.com/Bara/Multi-Colors/archive/refs/heads/master.zip -o colors.zip && \
+    unzip colors.zip && \
+    cd "Multi-Colors-master" && \
+    cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/colors.zip /tmp/Multi-Colors-master
+
+# Finally! !stickers plugin! -- les go! 
+cd /tmp/ && \
+    download https://github.com/quasemago/CSGO_WeaponStickers/releases/download/v1.0.13c/weaponstickers_1.0.13c.zip -o weaponstickers.zip && \
+    unzip weaponstickers.zip && \
+    cd weaponstickers_1.0.13c/ && \
+    cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/weaponstickers.zip /tmp/weaponstickers_1.0.13c/
 
 # Finally calling the .sh file and running csgo server
 # bash startcsgo.sh
