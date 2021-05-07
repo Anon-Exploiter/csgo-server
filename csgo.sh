@@ -4,8 +4,8 @@
 set -x
 
 # Setting variables required while running server:
-source vars.sh
-# source my.sh # My own local config with values added -- in .gitignore :P
+# source vars.sh
+source my.sh # My own local config with values added -- in .gitignore :P
 
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
@@ -31,7 +31,7 @@ rm -rfv /home/$USER/startcsgo.sh && \
     echo '#!/bin/sh' >> /home/$USER/startcsgo.sh && \
     echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \ # Fav map -- do try it :D
     echo "cd $CSGO_INSTALL_LOCATION" >> /home/$USER/startcsgo.sh && \
-    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map \$MAP -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY -autoupdate #+host_workshop_map 2078097114" >> /home/$USER/startcsgo.sh && \
+    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map \$MAP -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY #+host_workshop_map 2078097114" >> /home/$USER/startcsgo.sh && \
     chmod +x /home/$USER/startcsgo.sh
 
 # Downloading and setting up sourcemod
@@ -147,10 +147,13 @@ cd /tmp/ && \
     rm -rfv /tmp/colors.zip /tmp/Multi-Colors-master
 
 # Setting up mysql-server for the !stickers plugin to work
-sudo mysql -u root < ./cfgs/stickers.sql
+sudo systemctl enable mysql && \
+    sudo service mysql start && \
+    sudo service mysql status && \
+    sudo mysql -u root < "$EXEC_PTH/cfgs/stickers.sql"
 
 # Need to add connection snippet in databases.cfg of sourcemod
-cp ./cfgs/databases.cfg -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/"
+cp "$EXEC_PTH/cfgs/databases.cfg" -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/"
 
 # Checking if mysql extension is present and setting execution perms
 ls -la "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" && \
