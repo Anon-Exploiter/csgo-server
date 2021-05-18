@@ -22,7 +22,8 @@ sudo apt-get -y update && \
 # Installing steamcmd for installation of csgo
 cd /usr/bin/ && \
     sudo wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz && \
-    sudo tar -xvf steamcmd_linux.tar.gz
+    sudo tar -xvf steamcmd_linux.tar.gz && \
+    sudo rm -rfv steamcmd_linux.tar.gz
 
 # Installing csgo server in ~/csgo/ directory
 steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
