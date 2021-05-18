@@ -24,12 +24,11 @@ mkdir -p /home/$USER/steamcmd && \
     cd /home/$USER/steamcmd && \
     download http://media.steampowered.com/installer/steamcmd_linux.tar.gz -o steamcmd_linux.tar.gz && \
     tar -xvf steamcmd_linux.tar.gz && \
-    rm -rfv steamcmd_linux.tar.gz && \
-    echo "export PATH=\$PATH:/home/\$USER/steamcmd" >> ~/.profile && \
-    source ~/.profile
+    rm -rfv steamcmd_linux.tar.gz
 
 # Installing csgo server in ~/csgo-ds/ directory
-steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
+cd && \
+	/home/$USER/steamcmd/steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
 
 # Creating auto-startup bash file for ease while setting up
 rm -rfv /home/$USER/startcsgo.sh && \
