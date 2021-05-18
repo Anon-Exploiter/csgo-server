@@ -20,10 +20,12 @@ sudo apt-get -y update && \
     sudo apt-get -y autoremove
 
 # Installing steamcmd for installation of csgo
-sudo apt-get -y install steamcmd
+cd /usr/bin/ && \
+    sudo wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz && \
+    sudo tar -xvf steamcmd_linux.tar.gz
 
 # Installing csgo server in ~/csgo/ directory
-steamcmd +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
+steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
 
 # Creating auto-startup bash file for ease while setting up
 rm -rfv /home/$USER/startcsgo.sh && \
