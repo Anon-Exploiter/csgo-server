@@ -28,7 +28,7 @@ mkdir -p /home/$USER/steamcmd && \
     echo "export PATH=\$PATH:/home/\$USER/steamcmd" >> ~/.profile && \
     source ~/.profile
 
-# Installing csgo server in ~/csgo/ directory
+# Installing csgo server in ~/csgo-ds/ directory
 steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
 
 # Creating auto-startup bash file for ease while setting up
