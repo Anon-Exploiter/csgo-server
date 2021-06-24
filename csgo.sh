@@ -10,7 +10,7 @@ source vars.sh
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
     sudo apt-get -y upgrade && \
-    sudo apt-get -y install unzip zip software-properties-common aria2 lib32z1 zlib1g mysql-server lib32gcc1 net-tools && \
+    sudo apt-get -y install unzip zip software-properties-common aria2 lib32z1 zlib1g mysql-server lib32gcc1 net-tools lib32stdc++6 && \
     sudo add-apt-repository multiverse && \
     sudo dpkg --add-architecture i386 && \
     sudo apt-get -y update && \
