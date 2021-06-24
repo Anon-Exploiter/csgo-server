@@ -162,7 +162,7 @@ cp "$EXEC_PTH/cfgs/databases.cfg" -rv "$CSGO_INSTALL_LOCATION/csgo/addons/source
 
 # Checking if mysql extension is present and setting execution perms
 ls -la "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" && \
-    chmod u+x "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" -v && \
+    chmod u+x "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/extensions/dbi.mysql.ext.so" -v
 
 # Finally! !stickers plugin! -- les go! 
 cd /tmp/ && \
