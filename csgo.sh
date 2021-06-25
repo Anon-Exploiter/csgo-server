@@ -103,7 +103,7 @@ sed -i -e 's:"FollowCSGOServerGuidelines"\t"yes":"FollowCSGOServerGuideLines"\t"
 # Setting up reset score plugin (!rs or !resetscore)
 cd /tmp/ && \
     download https://github.com/abnerfs/abner_resetscore/releases/download/v1.5fix/AbNeR_ResetScore_v1.5.zip -o reset-score.zip && \
-    unzip reset-score.zip -d reset-score && \
+    unzip -o reset-score.zip -d reset-score && \
     cd reset-score/ && \
     cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/reset-score.zip /tmp/reset-score/
@@ -178,6 +178,17 @@ cd /tmp/ && \
     cd weaponstickers_1.0.13c/ && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/weaponstickers.zip /tmp/weaponstickers_1.0.13c/
+
+# Adding little anti cheat - detects aimbots, etc! (really useful!)
+cd /tmp/ && \
+    download https://github.com/J-Tanzanite/Little-Anti-Cheat/archive/refs/heads/master.zip -o lilvac.zip && \
+    unzip -o lilvac.zip && \
+    cd Little-Anti-Cheat-master/ && \
+    cp plugins scripting translations -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod" && \
+    rm -rfv /tmp/lilvac.zip /tmp/Little-Anti-Cheat-master/
+
+cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
+    download https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/lilac_config.cfg
 
 # Finally calling the .sh file and running csgo server
 # bash startcsgo.sh
