@@ -1,8 +1,6 @@
 ## CS:GO Server with Sourcemod (Bash installation & Docker image)
 Creating CS:GO server with skins, ws, gloves, knifes, !rank, !rs, etc. both with a bash file and using a docker file.  
 
-**Note:** The `Dockerfile` and `docker building` instructions will be moved to another repository, this repository will mainly serve installation without docker image creation (all to keep it simple).
-
 The `bash` file contains instructions for
 - Setting up CS:GO server
 - Setting up Sourcemod & Metamod
@@ -27,3 +25,9 @@ The bash file contains will setup everything!
 
 ### Contribution/Errors
 Report any errors with details or PR if whenever you come across one to make the container/manual better. Also, if you think a plugin is usefull and isn't in this repo, let me know, I'll work on integrating it. 
+
+---
+
+### Why's there a Dockerfile?
+
+Welp, I was crazy about docker some time ago so just ported everything in it 😛 you can just download that file and run it, it'll set you up a docker image but right now it ain't storing the files anywhere so you'll lost client side configurations (if any) 
