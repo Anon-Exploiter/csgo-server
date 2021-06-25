@@ -190,5 +190,10 @@ cd /tmp/ && \
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
     download https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/lilac_config.cfg
 
+# Another anticheat detector - Not heavily tested so comment this section if you don't feel like using it
+download "https://www.sourcemod.net/vbcompiler.php?file_id=188766" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/csgo_ac_cheating_convars.smx" && \
+    download "https://forums.alliedmods.net/attachment.php?attachmentid=181628&d=1590314528" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/configs/cheating_convars_enabled.ini" && \
+    download "https://forums.alliedmods.net/attachment.php?attachmentid=181567&d=1590073789" -o "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/csgo_ac_cheating_convars.cfg"
+
 # Finally calling the .sh file and running csgo server
 # bash startcsgo.sh
