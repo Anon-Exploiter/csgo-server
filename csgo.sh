@@ -100,11 +100,11 @@ sed -i -e 's:"FollowCSGOServerGuidelines"\t"yes":"FollowCSGOServerGuideLines"\t"
 
 # Setting up reset score plugin (!rs or !resetscore)
 cd /tmp/ && \
-    download https://github.com/abnerfs/abner_resetscore/archive/refs/heads/master.zip -o reset-score.zip && \
-    unzip -o reset-score.zip && \
-    cd abner_resetscore-master/ && \
-    cp scripting/ translations/ -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
-    rm -rfv /tmp/reset-score.zip /tmp/abner_resetscore-master/
+    download https://github.com/abnerfs/abner_resetscore/releases/download/v1.5fix/AbNeR_ResetScore_v1.5.zip -o reset-score.zip && \
+    unzip reset-score.zip -d reset-score && \
+    cd reset-score/ && \
+    cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/reset-score.zip /tmp/reset-score/
 
 # Downloading and setting up rank plugins (!rank !top ..)
 cd /tmp/ && \
