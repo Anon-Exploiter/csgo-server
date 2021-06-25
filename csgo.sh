@@ -29,7 +29,9 @@ mkdir -p /home/$USER/steamcmd && \
     cd /home/$USER/steamcmd && \
     download http://media.steampowered.com/installer/steamcmd_linux.tar.gz -o steamcmd_linux.tar.gz && \
     tar -xvf steamcmd_linux.tar.gz && \
-    rm -rfv steamcmd_linux.tar.gz
+    rm -rfv steamcmd_linux.tar.gz && \
+    mkdir -p ~/.steam/sdk32/ && \
+    ln -s ~/steamcmd/linux32/steamclient.so ~/.steam/sdk32/
 
 # Installing csgo server in ~/csgo-ds/ directory
 cd && \
