@@ -5,7 +5,12 @@ set -x
 
 # Setting variables required while running server:
 source vars.sh
-# source my.sh # My own local config with values added -- in .gitignore :P
+# source my.sh
+
+# For downloading of files
+download() {
+    aria2c -s 10 -j 10 -x 16 $@ --file-allocation=none -c
+}
 
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
@@ -34,16 +39,16 @@ cd && \
 rm -rfv /home/$USER/startcsgo.sh && \
     touch /home/$USER/startcsgo.sh && \
     echo '#!/bin/sh' >> /home/$USER/startcsgo.sh && \
-    echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \ # Fav map -- do try it :D
+    echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \
     echo "cd $CSGO_INSTALL_LOCATION" >> /home/$USER/startcsgo.sh && \
-    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active +map \$MAP -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY #+host_workshop_map 2078097114" >> /home/$USER/startcsgo.sh && \
+    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY +host_workshop_map 2078097114 +map \$MAP" >> /home/$USER/startcsgo.sh && \
     chmod +x /home/$USER/startcsgo.sh
 
 # Downloading and setting up sourcemod
 cd /tmp/ && \
-    download https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6502-linux.tar.gz && \
-    tar -xvf sourcemod-1.10.0-git6502-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/sourcemod-1.10.0-git6502-linux.tar.gz
+    download https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6503-linux.tar.gz && \
+    tar -xvf sourcemod-1.10.0-git6503-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/sourcemod-1.10.0-git6503-linux.tar.gz
 
 # Downloading and setting up metamod
 cd /tmp/ && \
