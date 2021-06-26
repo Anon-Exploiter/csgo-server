@@ -190,5 +190,9 @@ cd /tmp/ && \
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
     download https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/lilac_config.cfg
 
+# Vote kick plugins
+download "https://www.sourcemod.net/vbcompiler.php?file_id=157507" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/votekicklimit.smx" && \
+    download "https://github.com/psbj/vote-blocker/raw/master/plugins/voteblocker.smx" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/votekicklimit.smx"
+
 # Finally calling the .sh file and running csgo server
 # bash startcsgo.sh
