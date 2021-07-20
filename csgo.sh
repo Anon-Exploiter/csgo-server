@@ -238,6 +238,8 @@ cd /tmp/ && \
     mv afk_manager4.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/" && \
     mv afk_manager.phrases.txt -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/translations/"
 
+curl https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/afk_manager.cfg -o "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/afk_manager.cfg"
+
 
 # Setting up "Music - MVP !music" plugin
 cd /tmp/ && \
