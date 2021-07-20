@@ -44,7 +44,7 @@ rm -rfv /home/$USER/startcsgo.sh && \
     echo '#!/bin/sh' >> /home/$USER/startcsgo.sh && \
     echo 'MAP=workshop/2078097114/1v1_awp' >> /home/$USER/startcsgo.sh && \
     echo "cd $CSGO_INSTALL_LOCATION" >> /home/$USER/startcsgo.sh && \
-    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY +host_workshop_map 2078097114 +map \$MAP" >> /home/$USER/startcsgo.sh && \
+    echo "./srcds_run -game csgo -usercon +game_type 0 +game_mode 1 +mapgroup mg_active -hltv +tv_enable 1 -tickrate 128 +sv_setsteamaccount $GSLT -net_port_try 1 -authkey $AUTHKEY +host_workshop_map 2078097114 +map \$MAP +sv_prime_accounts_only 1" >> /home/$USER/startcsgo.sh && \
     chmod +x /home/$USER/startcsgo.sh
 
 
