@@ -10,12 +10,6 @@ source config.sh
 # source my.sh
 
 
-# For downloading of files
-download() {
-    aria2c -s 10 -j 10 -x 16 $@ --file-allocation=none -c
-}
-
-
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
     sudo apt-get -y upgrade && \
@@ -219,6 +213,13 @@ cd /tmp/ && \
 
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
     download https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/lilac_config.cfg
+
+
+# Setting up !agents plugin
+cd /tmp/ && \
+    download "https://raw.githubusercontent.com/Franc1sco/Franug-AgentsChooser/master/csgo_agentschooser.smx" && \
+    download "https://raw.githubusercontent.com/Franc1sco/Franug-AgentsChooser/master/csgo_voiceagents_enabler.smx" && \
+    mv csgo_agentschooser.smx csgo_voiceagents_enabler.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/" && \
 
 
 
