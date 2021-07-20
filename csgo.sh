@@ -222,6 +222,15 @@ cd /tmp/ && \
     mv csgo_agentschooser.smx csgo_voiceagents_enabler.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/" && \
 
 
+# Setting up "Useful commands !uc" plugin - https://forums.alliedmods.net/showthread.php?p=2617618
+cd /tmp/ && \
+    download https://github.com/eyal282/Useful-Commands/archive/refs/heads/master.zip -o uc.zip && \
+    unzip -o uc.zip && \
+    cd Useful-Commands-master/ && \
+    cp addons -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/uc.zip /tmp/Useful-Commands-master
+
+
 
 # Finally call the .sh file and for running the csgo-server
 # bash startcsgo.sh
