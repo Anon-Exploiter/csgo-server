@@ -239,6 +239,15 @@ cd /tmp/ && \
     mv afk_manager.phrases.txt -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/translations/"
 
 
+# Setting up "Music - MVP !music" plugin
+cd /tmp/ && \
+    download https://github.com/rogeraabbccdd/Music-Kits/archive/refs/heads/master.zip -o music.zip && \
+    unzip -o music.zip && \
+    cd Music-Kits-master/ && \
+    cp plugins translations -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" && \
+    rm -rfv /tmp/music.zip /tmp/Music-Kits-master/
+
+
 
 # Finally call the .sh file and for running the csgo-server
 # bash startcsgo.sh
