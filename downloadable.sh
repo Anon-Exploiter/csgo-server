@@ -24,3 +24,11 @@ cd /tmp/ && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/fortnite_hits_1.2.0 /tmp/fortnite_hits_1.2.0.zip
 
+
+# Setting up "FaceIt Levels on scoreboard" plugin - https://forums.alliedmods.net/showthread.php?p=2727956
+cd /tmp/ && \
+    download https://github.com/Sarrus1/FaceitLevels-for-kento-RankMe/archive/refs/heads/master.zip -o faceit.zip && \
+    unzip -o faceit.zip && \
+    cd FaceitLevels-for-kento-RankMe-master/ && \
+    cp addons materials -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/faceit.zip /tmp/FaceitLevels-for-kento-RankMe-master/
