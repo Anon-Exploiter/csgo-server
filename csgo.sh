@@ -248,6 +248,14 @@ cd /tmp/ && \
     rm -rfv /tmp/music.zip /tmp/Music-Kits-master/
 
 
+# Setting up "FaceIt Levels on scoreboard" plugin - https://forums.alliedmods.net/showthread.php?p=2727956
+cd /tmp/ && \
+    download https://github.com/Sarrus1/FaceitLevels-for-kento-RankMe/archive/refs/heads/master.zip -o faceit.zip && \
+    unzip -o faceit.zip && \
+    cd FaceitLevels-for-kento-RankMe-master/ && \
+    cp addons materials -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/faceit.zip /tmp/FaceitLevels-for-kento-RankMe-master/
+
 
 # Finally call the .sh file and for running the csgo-server
 # bash startcsgo.sh
