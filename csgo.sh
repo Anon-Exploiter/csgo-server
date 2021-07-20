@@ -217,14 +217,9 @@ cd /tmp/ && \
     cp plugins scripting translations -rv "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod" && \
     rm -rfv /tmp/lilvac.zip /tmp/Little-Anti-Cheat-master/
 
-
 cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
     download https://raw.githubusercontent.com/Anon-Exploiter/csgo-server/master/cfgs/lilac_config.cfg
 
-
-# Vote kick plugins
-download "https://www.sourcemod.net/vbcompiler.php?file_id=157507" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/votekicklimit.smx" && \
-    download "https://github.com/psbj/vote-blocker/raw/master/plugins/voteblocker.smx" -o "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/votekicklimit.smx"
 
 
 # Finally call the .sh file and for running the csgo-server
