@@ -5,7 +5,7 @@ EXEC_PTH=`pwd`
 
 # Setting variables for CS:GO sourcemod config files
 STEAMID=''              # Your SteamId to add you as a admin on sourcemod installation -- https://steamid.io/lookup
-SERVERNAME=''           # Server name
+SERVERNAME=""           # Server name
 RCONPSWD=''             # Rcon password while setting up cs:go
 
 # For downloading of files
