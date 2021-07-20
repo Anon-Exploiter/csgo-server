@@ -32,3 +32,12 @@ cd /tmp/ && \
     cd FaceitLevels-for-kento-RankMe-master/ && \
     cp addons materials -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/faceit.zip /tmp/FaceitLevels-for-kento-RankMe-master/
+
+
+# Setting up "Scoreboard ranks (i.e. GE, LEM, etc.)" plugin
+cd /tmp/ && \
+    download https://github.com/luis-rei97/MatchMaking-Ranks-By-Points/archive/refs/heads/master.zip -o match.zip && \
+    unzip -o match.zip && \
+    cd MatchMaking-Ranks-By-Points-master/ && \
+    cp addons cfg materials sound -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/match.zip /tmp/MatchMaking-Ranks-By-Points-master/
