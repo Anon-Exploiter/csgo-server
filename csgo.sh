@@ -219,7 +219,7 @@ cd "$CSGO_INSTALL_LOCATION/csgo/cfg/sourcemod/" && \
 cd /tmp/ && \
     download "https://raw.githubusercontent.com/Franc1sco/Franug-AgentsChooser/master/csgo_agentschooser.smx" && \
     download "https://raw.githubusercontent.com/Franc1sco/Franug-AgentsChooser/master/csgo_voiceagents_enabler.smx" && \
-    mv csgo_agentschooser.smx csgo_voiceagents_enabler.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/" && \
+    mv csgo_agentschooser.smx csgo_voiceagents_enabler.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/"
 
 
 # Setting up "Useful commands !uc" plugin - https://forums.alliedmods.net/showthread.php?p=2617618
@@ -229,6 +229,14 @@ cd /tmp/ && \
     cd Useful-Commands-master/ && \
     cp addons -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/uc.zip /tmp/Useful-Commands-master
+
+
+# Setting up "AFK manager" plugin - https://forums.alliedmods.net/showthread.php?p=708265
+cd /tmp/ && \
+    download "http://afkmanager.dawgclan.net/plugins/afk_manager4.smx" && \
+    download "https://forums.alliedmods.net/attachment.php?attachmentid=166646&d=1510967008" -o "afk_manager.phrases.txt" && \
+    mv afk_manager4.smx -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/plugins/" && \
+    mv afk_manager.phrases.txt -v "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/translations/"
 
 
 
