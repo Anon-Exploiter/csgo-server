@@ -4,7 +4,7 @@
 set -x
 
 # Setting variables required while running server:
-source vars.sh
+source config.sh
 # source my.sh
 
 # For downloading of files
