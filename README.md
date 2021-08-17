@@ -11,7 +11,6 @@ The `bash` file contains instructions for
 ### Installation instructions (populating [vars.sh](https://github.com/Anon-Exploiter/csgo-server/blob/master/vars.sh))
 * Need to add `GSLT token` for creating community server which can be grabbed from: https://steamcommunity.com/dev/managegameservers
 * Need to add `AUTHKEY` for downloading workshop maps which can be grabbed from: https://steamcommunity.com/dev/apikey
-* ...
 
 ### Why create this?
 The reason of creating this `repo` was to simplify the steps of creating a **CS:GO server on linux**. Manually, on the first time, it took me around 3-4 hours to setup everything with sourcemod, metamod, and plugins.
