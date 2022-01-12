@@ -35,7 +35,7 @@ mkdir -p /home/$USER/steamcmd && \
 
 # Installing csgo server in ~/csgo-ds/ directory
 cd && \
-	/home/$USER/steamcmd/steamcmd.sh +login anonymous +force_install_dir $CSGO_INSTALL_LOCATION +app_update 740 +quit
+	/home/$USER/steamcmd/steamcmd.sh +force_install_dir $CSGO_INSTALL_LOCATION +login anonymous +app_update 740 +quit
 
 
 # Creating auto-startup bash file for ease while setting up
