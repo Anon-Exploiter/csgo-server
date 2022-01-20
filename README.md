@@ -17,6 +17,9 @@ The reason of creating this `repo` was to simplify the steps of creating a **CS:
 
 The bash file contains will setup everything! 
 
+### Works fine on
+- Ubuntu 20.04 LTS (as of now)
+
 ### Todos
 - Implement arguments in the script
 - Beautifying the script
