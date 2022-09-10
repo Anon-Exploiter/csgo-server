@@ -13,7 +13,7 @@ source config.sh
 # Update & Upgrade -- Add i386 architecture support for steam libraries
 sudo apt-get -y update && \
     sudo apt-get -y upgrade && \
-    sudo apt-get -y install unzip zip software-properties-common aria2 lib32z1 zlib1g mysql-server lib32gcc1 net-tools lib32stdc++6 && \
+    sudo apt-get -y install unzip zip software-properties-common aria2 lib32z1 zlib1g mysql-server net-tools lib32stdc++6 && \
     sudo add-apt-repository multiverse && \
     sudo dpkg --add-architecture i386 && \
     sudo apt-get -y update && \
@@ -50,16 +50,16 @@ rm -rfv /home/$USER/startcsgo.sh && \
 
 # Downloading and setting up sourcemod
 cd /tmp/ && \
-    download https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6503-linux.tar.gz && \
-    tar -xvf sourcemod-1.10.0-git6503-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/sourcemod-1.10.0-git6503-linux.tar.gz
+    download https://sm.alliedmods.net/smdrop/1.11/sourcemod-1.11.0-git6911-linux.tar.gz && \
+    tar -xvf sourcemod-1.11.0-git6911-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/sourcemod-1.11.0-git6911-linux.tar.gz
 
 
 # Downloading and setting up metamod
 cd /tmp/ && \
-    download https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1144-linux.tar.gz && \
-    tar -xvf mmsource-1.11.0-git1144-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/mmsource-1.11.0-git1144-linux.tar.gz
+    download https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1148-linux.tar.gz && \
+    tar -xvf mmsource-1.11.0-git1148-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
+    rm -rfv /tmp/mmsource-1.11.0-git1148-linux.tar.gz
 
 
 # Adding user as admin in sourcemod config
@@ -91,11 +91,11 @@ cd /tmp/ && \
 
 # Downloading and setting up knife, and guns skins (!ws, !gloves && !knife)
 cd /tmp/ && \
-    download https://github.com/kgns/weapons/releases/download/v1.7.2/weapons-v1.7.2.zip && \
-    unzip weapons-v1.7.2.zip -d wpns && \
+    download https://github.com/kgns/weapons/releases/download/v1.7.7/weapons-v1.7.7.zip && \
+    unzip weapons-v1.7.7.zip -d wpns && \
     cd wpns && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/weapons-v1.7.2.zip /tmp/wpns
+    rm -rfv /tmp/weapons-v1.7.7.zip /tmp/wpns
 
 
 # Downloading and setting up gloves
@@ -117,7 +117,7 @@ cd /tmp/ && \
     unzip -o reset-score.zip -d reset-score && \
     cd reset-score/ && \
     cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
-    find "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" -name "desktop.ini" -exec rm -rfv {} \; && \
+    sudo find "$CSGO_INSTALL_LOCATION/csgo/addons/sourcemod/" -name "desktop.ini" -exec rm -rfv {} \; && \
     rm -rfv /tmp/reset-score.zip /tmp/reset-score/
 
 
@@ -163,9 +163,10 @@ cd /tmp/ && \
 
 # REST in Pawn dependency for !stickers
 cd /tmp && \
-    download https://github.com/ErikMinekus/sm-ripext/releases/download/1.2.1/sm-ripext-1.2.1-linux.tar.gz && \
-    tar -xvf sm-ripext-1.2.1-linux.tar.gz -C "$CSGO_INSTALL_LOCATION/csgo/" && \
-    rm -rfv /tmp/sm-ripext-1.2.1-linux.tar.gz /tmp/addons/
+    download https://github.com/ErikMinekus/sm-ripext/releases/download/1.3.1/sm-ripext-1.3.1-linux.zip && \
+    unzip -o sm-ripext-1.3.1-linux.zip && \
+    cp addons/ -rv "$CSGO_INSTALL_LOCATION/csgo/" && \ 
+    rm -rfv /tmp/sm-ripext-1.3.1-linux.zip /tmp/addons/
 
 
 # PTaH has already been setup above^ for !ws 
