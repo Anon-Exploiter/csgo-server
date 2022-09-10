@@ -20,6 +20,7 @@ source config.sh
 # Setting up "Fortnite like damage" plugin - https://forums.alliedmods.net/showthread.php?t=309218
 cd /tmp/ && \
     download "https://forums.alliedmods.net/attachment.php?attachmentid=170606&d=1532301560" -o "fortnite_hits_1.2.0.zip" && \
+    unzip -o fortnite_hits_1.2.0.zip && \
     cd "fortnite_hits_1.2.0" && \
     cp * -rv "$CSGO_INSTALL_LOCATION/csgo/" && \
     rm -rfv /tmp/fortnite_hits_1.2.0 /tmp/fortnite_hits_1.2.0.zip
